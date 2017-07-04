@@ -6,4 +6,5 @@
     <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
     <rule ref="Generic.PHP.DisallowShortOpenTag"/>
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="./Codesniffer/Sniffs/Flyeralarm/NoInterfaceSuffixSniff.php"/>
 </ruleset>
