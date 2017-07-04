@@ -1,9 +1,17 @@
-Prepare for development
--------
-```make```
+Work in this repo
+-----------------
+To prepare run command:
+```
+make
+```
+
+To test ruleset run command:
+```
+make test
+```
 
 Use within your project
---------------------------
+------------------------
 Install php code sniffer:
 composer require --dev flyeralarm/coding-guidelines
 ```
