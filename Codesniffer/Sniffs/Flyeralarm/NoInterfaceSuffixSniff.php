@@ -13,9 +13,7 @@ class NoInterfaceSuffixSniff implements Sniff
     public function register()
     {
         return array(T_INTERFACE);
-
     }
-
 
     /**
      * @param File $phpcsFile
