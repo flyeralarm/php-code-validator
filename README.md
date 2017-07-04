@@ -13,8 +13,8 @@ make test
 Use within your project
 ------------------------
 Install php code sniffer:
-composer require --dev flyeralarm/coding-guidelines
 ```
+composer require --dev flyeralarm/coding-guidelines
 composer require --dev squizlabs/php_codesniffer:3.0.*
 ```
 
