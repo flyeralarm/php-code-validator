@@ -1,0 +1,20 @@
+{
+    "name": "flyeralarm/coding-guidelines",
+    "description": "A custom coding standard for flyeralarm",
+    "type": "config",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Daniel Müller",
+            "email": "d.mueller@flyeralarm.de"
+        },
+        {
+            "name": "Maximilian Grosch",
+            "email": "m.grosch@flyeralarm.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0"
+    }
+}
