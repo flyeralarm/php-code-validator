@@ -5,14 +5,14 @@ namespace flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
-class NoInterfaceSuffixSniff implements Sniff
+class NoClassKindSuffixSniff implements Sniff
 {
     /**
      * @return array
      */
     public function register()
     {
-        return array(T_INTERFACE);
+        return array(T_INTERFACE, T_CLASS, T_TRAIT);
     }
 
     /**
@@ -24,8 +24,9 @@ class NoInterfaceSuffixSniff implements Sniff
     {
         $interfaceName = $phpcsFile->getDeclarationName($stackPtr);
 
-        if (preg_match('/Interface$/i', $interfaceName) === 1) {
-            $phpcsFile->addError('Suffix "Interface" is not allowed', $stackPtr, 'InvalidInterfaceName');
+        if (preg_match('/(Interface|Abstract|Trait)$/i', $interfaceName, $kind) === 1) {
+            $kind = $kind[1];
+            $phpcsFile->addError('Suffix "' . $kind . '" is not allowed', $stackPtr, 'InvalidInterfaceName');
         }
     }
 }
