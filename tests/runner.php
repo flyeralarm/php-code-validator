@@ -1,9 +1,15 @@
 <?php
 
+$hasError = false;
 processDir(__DIR__ . '/rules/');
+if ($hasError) {
+    exit(1);
+}
+exit(0);
 
 function processDir($dirPath)
 {
+    global $hasError;
     $dir = opendir($dirPath);
     while (($file = readdir($dir)) !== false) {
         if (strpos($file, '.') === 0) {
@@ -23,6 +29,10 @@ function processDir($dirPath)
                 echo 'OK - [' . $dirPath . $file . ']' . PHP_EOL;
                 continue;
             }
+
+            $hasError = true;
+            echo 'ERROR - [' . $dirPath . $file . ']: Test was expected to fully pass. Result: ' . PHP_EOL . $snifferOutput . PHP_EOL;
+            continue;
         }
 
         // expectedError
@@ -33,6 +43,7 @@ function processDir($dirPath)
         }
         $expected = $expectedMatch[1];
         if (preg_match('/ERROR\s\|\s?[\[\]x]*\s' . preg_quote($expected, '/') . '/', $snifferOutput) === 0) {
+            $hasError = true;
             echo 'ERROR - [' . $dirPath . $file . ']: Expectation <<' . $expected . '>> not found in result: ' . PHP_EOL . $snifferOutput . PHP_EOL;
         } else {
             echo 'OK - [' . $dirPath . $file . ']' . PHP_EOL;
