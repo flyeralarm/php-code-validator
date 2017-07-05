@@ -1,4 +1,5 @@
-COMPOSER_BIN=php composer.phar
+PHP_BIN=php
+COMPOSER_BIN=$(PHP_BIN) composer.phar
 
 # ---------------------------------------------
 
@@ -7,7 +8,7 @@ COMPOSER_BIN=php composer.phar
 
 # make test
 test:
-	php vendor/bin/phpcs --standard=ruleset.xml --colors -v ValidClass.php
+	$(PHP_BIN) tests/runner.php
 
 # make install
 install:
