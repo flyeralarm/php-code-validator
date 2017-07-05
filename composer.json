@@ -14,7 +14,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require-dev": {
+    "require": {
         "squizlabs/php_codesniffer": "^3.0"
-    }
+    },
+    "bin": [
+        "bin/fa-coding-guideline-validator"
+    ]
 }

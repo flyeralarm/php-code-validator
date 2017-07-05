@@ -1,0 +1,7 @@
+#!/bin/bash
+CALLER_DIR=$(pwd)
+cd $(dirname $0)
+SCRIPT_DIR=$(pwd)
+
+cd ${CALLER_DIR}
+php ${SCRIPT_DIR}/../vendor/bin/phpcs -w -p -s --standard=${SCRIPT_DIR}/../ruleset.xml "$@"

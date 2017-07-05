@@ -10,33 +10,37 @@ To test ruleset run command:
 make test
 ```
 
-Use within your project
+Embed into your project
 ------------------------
-Install php code sniffer:
-```
-composer require --dev flyeralarm/coding-guidelines
-composer require --dev squizlabs/php_codesniffer:3.0.*
-```
 
-Add config as composer dev dependency:
+Add as composer dev dependency:
 ```
 composer config repositories.flyeralarm/coding-guidelines git ssh://git@stash.flyeralarm:7999/cfa/coding-guidelines.git
 composer require --dev flyeralarm/coding-guidelines
 ```
 
-Update both to install:
+Use this command to install:
 ```
-composer update squizlabs/php_codesniffer flyeralarm/coding-guidelines
+composer update flyeralarm/coding-guidelines
 ```
 
-Embed php code sniffer in your Makefile. To intend please use tabs instead of spaces. 
+Embed code sniffer in your Makefile. To intend please use tabs instead of spaces. 
 ```
 test:
-	php vendor/bin/phpcs --standard=vendor/flyeralarm/coding-guidelines/ruleset.xml src/
+	vendor/bin/fa-coding-guideline-validator src/ tests/
 ```
 
-Run your tests
+Run sniffer within your project
+-------------------------------
 ```
-cd $YOUR_PROJECT_ROOT
 make test
 ```
+
+Use within PHPStorm
+-------------------
+- Open settings:
+`File` > `Default Settings...` > `Editor` > `Inspections` > `PHP`
+- Activate Option `PHP Code Sniffer validation`
+- Choose "Custom" for „Coding standard:“ and click on `...` on the right hand side
+- Select Path to ruleset. This would be something like <YOUR_APP_ROOT>/vendor/flyeralarm/coding-guidelines/ruleset.xml
+- Confirm dialogs by pressing `ok`
