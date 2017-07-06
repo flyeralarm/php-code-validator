@@ -1,7 +1,16 @@
 #!/bin/bash
 CALLER_DIR=$(pwd)
 cd $(dirname $0)
-SCRIPT_DIR=$(pwd)
-
+BIN_DIR=$(pwd)
 cd ${CALLER_DIR}
-php ${SCRIPT_DIR}/../vendor/bin/phpcs -w -p -s --standard=${SCRIPT_DIR}/../ruleset.xml "$@"
+
+# used within project
+if [ -f ${BIN_DIR}/phpcs ]; then
+    SCRIPT_DIR=${BIN_DIR}/../flyeralarm/coding-guidelines
+    COMPOSER_BIN=${BIN_DIR}
+else # standalone
+    SCRIPT_DIR=${BIN_DIR}/..
+    COMPOSER_BIN=${BIN_DIR}/../vendor/bin
+fi
+
+php ${COMPOSER_BIN}/phpcs -w -p -s --standard=${SCRIPT_DIR}/ruleset.xml "$@"
