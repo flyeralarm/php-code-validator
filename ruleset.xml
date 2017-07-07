@@ -7,4 +7,5 @@
     <rule ref="Generic.PHP.DisallowShortOpenTag"/>
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NoClassKindSuffixSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ReturnTypeSniff.php"/>
 </ruleset>
