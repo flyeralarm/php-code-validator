@@ -8,6 +8,7 @@
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/ExceptionMessageSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/ForbiddenKeywordsSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NamespacesSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NoClassKindSuffixSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ReturnTypeSniff.php"/>
 </ruleset>
