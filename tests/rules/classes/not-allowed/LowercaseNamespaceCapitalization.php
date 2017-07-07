@@ -1,6 +1,6 @@
 <?php
 
-// @expectedError Namespace declarations after the first must be in UpperCamelCase
+// @expectedError Namespace declarations after vendor name must be in UpperCamelCase
 
 namespace flyeralarm\lowerCase;
 

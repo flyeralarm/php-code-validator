@@ -27,7 +27,7 @@ class NamespacesSniff implements Sniff
         while($ptr = $phpcsFile->findNext(T_NS_SEPARATOR, $ptr + 1)) {
             if (ctype_upper($tokens[$ptr + 1]['content'][0]) === false) {
                 $phpcsFile->addError(
-                    'Namespace declarations after the first must be in UpperCamelCase',
+                    'Namespace declarations after vendor name must be in UpperCamelCase',
                     $stackPtr,
                     'NamespaceDeclarationWithInvalidCapitalization'
                 );
@@ -35,7 +35,7 @@ class NamespacesSniff implements Sniff
 
             if (strpos($tokens[$ptr + 1]['content'], '_') !== false) {
                 $phpcsFile->addError(
-                    'Namespace declarations after the first must be in UpperCamelCase',
+                    'Namespace declarations after vendor name must be in UpperCamelCase',
                     $stackPtr,
                     'NamespaceDeclarationWithInvalidCapitalization'
                 );
