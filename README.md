@@ -17,6 +17,7 @@ To test ruleset run command:
 make test
 ```
 
+
 Embed into your project
 ------------------------
 
@@ -37,11 +38,13 @@ test:
 	vendor/bin/fa-coding-guideline-validator src/ tests/
 ```
 
+
 Run sniffer within your project
 -------------------------------
 ```
 make test
 ```
+
 
 Use within PHPStorm
 -------------------
