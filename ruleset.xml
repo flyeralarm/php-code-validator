@@ -10,4 +10,5 @@
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/ForbiddenKeywordsSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NoClassKindSuffixSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ReturnTypeSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ExpectedExceptionMessageSniff.php"/>
 </ruleset>

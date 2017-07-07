@@ -42,7 +42,7 @@ function processDir($dirPath)
             continue;
         }
         $expected = $expectedMatch[1];
-        if (preg_match('/ERROR\s\|\s?[\[\]x]*\s' . preg_quote($expected, '/') . '/', $snifferOutput) === 0) {
+        if (preg_match('/ERROR\s\|\s?[\[\]x\s]*\s' . preg_quote($expected, '/') . '/', $snifferOutput) === 0) {
             $hasError = true;
             echo 'ERROR - [' . $dirPath . $file . ']: Expectation <<' . $expected . '>> not found in result: ' . PHP_EOL . $snifferOutput . PHP_EOL;
         } else {
