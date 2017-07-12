@@ -40,6 +40,9 @@ class NamespacesSniff implements Sniff
                     'NamespaceDeclarationWithInvalidCapitalization'
                 );
             }
+            if (strpos($tokens[$ptr + 2]['content'], ';') !== false) {
+                break;
+            }
         }
     }
 }
