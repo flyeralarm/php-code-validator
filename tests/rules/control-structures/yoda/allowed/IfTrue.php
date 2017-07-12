@@ -1,0 +1,6 @@
+<?php
+
+// @expectedPass
+
+if (true) {
+}

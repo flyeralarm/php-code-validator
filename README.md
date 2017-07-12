@@ -48,8 +48,10 @@ make test
 
 Use within PHPStorm
 -------------------
-- Open settings:
-`File` > `Default Settings...` > `Editor` > `Inspections` > `PHP`
+- Open settings: \
+Mac: `PhpStorm` > `Preferences` > `Editor` > `Inspections` > `PHP` \
+Windows: \<unknown>\
+Linux: \<unknown>
 - Activate Option `PHP Code Sniffer validation`
 - Choose "Custom" for „Coding standard:“ and click on `...` on the right hand side
 - Select Path to ruleset. This would be something like <YOUR_APP_ROOT>/vendor/flyeralarm/coding-guidelines/ruleset.xml
