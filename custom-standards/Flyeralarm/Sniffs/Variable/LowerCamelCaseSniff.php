@@ -1,6 +1,6 @@
 <?php
 
-namespace flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\Variable;
+namespace Flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\Variable;
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
