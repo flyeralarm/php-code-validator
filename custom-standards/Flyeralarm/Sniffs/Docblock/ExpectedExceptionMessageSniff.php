@@ -1,6 +1,6 @@
 <?php
 
-namespace flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\Docblock;
+namespace Flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\Docblock;
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;

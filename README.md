@@ -5,7 +5,7 @@ This repository contains the ruleset for the PHP code we develop at flyeralarm.
 It mostly consists of PSR-2 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
 
-How-To
+How-To work within *this* project
 ------
 To prepare run command:
 ```
@@ -18,7 +18,7 @@ make test
 ```
 
 
-Embed into your project
+Embed into *your* project
 ------------------------
 
 Add as composer dev dependency:

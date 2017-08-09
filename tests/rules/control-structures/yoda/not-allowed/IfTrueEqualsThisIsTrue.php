@@ -2,7 +2,7 @@
 
 // @expectedError YODA is discouraged
 
-namespace flyeralarm\CodingGuidelines;
+namespace Flyeralarm\CodingGuidelines;
 
 class IfTrueEqualsThisIsTrue
 {

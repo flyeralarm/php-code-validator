@@ -2,7 +2,7 @@
 
 // @expectedPass
 
-namespace flyeralarm\CodingGuidelines;
+namespace Flyeralarm\CodingGuidelines;
 
 class IfThisIsTrueEqualsTrue
 {
