@@ -27,7 +27,7 @@ class NamespacesSniff implements Sniff
         while($ptr = $phpcsFile->findNext(T_NS_SEPARATOR, $ptr + 1)) {
             if (strpos($tokens[$ptr + 1]['content'], '_') !== false) {
                 $phpcsFile->addError(
-                    'Using underscores within namespaces is discouraged',
+                    'Using underscore within namespaces is discouraged',
                     $stackPtr,
                     'NamespaceDeclarationWithInvalidCapitalization'
                 );
