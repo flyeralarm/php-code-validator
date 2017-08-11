@@ -25,17 +25,9 @@ class NamespacesSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
         $ptr = -1;
         while($ptr = $phpcsFile->findNext(T_NS_SEPARATOR, $ptr + 1)) {
-            if (ctype_upper($tokens[$ptr + 1]['content'][0]) === false) {
-                $phpcsFile->addError(
-                    'Namespace declarations after vendor name must be in UpperCamelCase',
-                    $stackPtr,
-                    'NamespaceDeclarationWithInvalidCapitalization'
-                );
-            }
-
             if (strpos($tokens[$ptr + 1]['content'], '_') !== false) {
                 $phpcsFile->addError(
-                    'Namespace declarations after vendor name must be in UpperCamelCase',
+                    'Using underscore within namespaces is discouraged',
                     $stackPtr,
                     'NamespaceDeclarationWithInvalidCapitalization'
                 );
