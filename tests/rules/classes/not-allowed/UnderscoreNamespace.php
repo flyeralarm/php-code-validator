@@ -1,6 +1,6 @@
 <?php
 
-// @expectedError Using underscores within namespaces is discouraged
+// @expectedError Using underscore within namespaces is discouraged
 
 namespace flyeralarm\under_score;
 
