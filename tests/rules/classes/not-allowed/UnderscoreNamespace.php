@@ -1,6 +1,6 @@
 <?php
 
-// @expectedError Namespace declarations after vendor name must be in UpperCamelCase
+// @expectedError Using underscores within namespaces is discouraged
 
 namespace flyeralarm\under_score;
 
