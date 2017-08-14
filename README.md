@@ -1,4 +1,4 @@
-# Flyeralarm Coding Guidelines
+# Flyeralarm PHP Coding Guideline Validator
 
 
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
