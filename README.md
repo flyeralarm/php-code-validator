@@ -58,3 +58,6 @@ make test
 5) Choose "Custom" for „Coding standard:“ and click on `...` on the right hand side
 6) Select Path to ruleset. This would be something like <YOUR_APP_ROOT>/vendor/flyeralarm/coding-guidelines/ruleset.xml
 7) Confirm dialogs by pressing `ok`
+
+
+On a side note: [We are searching for talented people to join our various teams of developers in multiple locations](https://karriere.flyeralarm.com/jobs)
