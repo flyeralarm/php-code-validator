@@ -12,15 +12,15 @@ class LowerCamelCaseSniff implements Sniff
      * @var array
      */
     protected $superGlobals = [
-        '$GLOBALS',
-        '$_SERVER',
-        '$_GET',
-        '$_POST',
-        '$_FILES',
-        '$_COOKIE',
-        '$_SESSION',
-        '$_REQUEST',
-        '$_ENV',
+        'GLOBALS',
+        '_SERVER',
+        '_GET',
+        '_POST',
+        '_FILES',
+        '_COOKIE',
+        '_SESSION',
+        '_REQUEST',
+        '_ENV',
     ];
 
     /**
