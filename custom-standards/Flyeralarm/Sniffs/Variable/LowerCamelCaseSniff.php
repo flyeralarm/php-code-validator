@@ -9,6 +9,21 @@ use PHP_CodeSniffer\Util\Common;
 class LowerCamelCaseSniff implements Sniff
 {
     /**
+     * @var array
+     */
+    protected $superGlobals = [
+        '$GLOBALS',
+        '$_SERVER',
+        '$_GET',
+        '$_POST',
+        '$_FILES',
+        '$_COOKIE',
+        '$_SESSION',
+        '$_REQUEST',
+        '$_ENV',
+    ];
+
+    /**
      * @return array
      */
     public function register()
@@ -31,6 +46,10 @@ class LowerCamelCaseSniff implements Sniff
 
             $variableName = $tokens[$variablePtr]['content'];
             $variableName = substr($variableName, 1);
+
+            if (in_array($variableName, $this->superGlobals)) {
+                continue;
+            }
 
             $isLowerCamelCase = Common::isCamelCaps($variableName, false, true, true);
             if ($isLowerCamelCase) {
