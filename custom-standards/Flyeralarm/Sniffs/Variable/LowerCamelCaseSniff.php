@@ -11,7 +11,7 @@ class LowerCamelCaseSniff implements Sniff
     /**
      * @var array
      */
-    protected $superGlobals = [
+    private $superGlobals = [
         'GLOBALS',
         '_SERVER',
         '_GET',
