@@ -6,11 +6,11 @@
     "authors": [
         {
             "name": "Daniel Müller",
-            "email": "d.mueller@flyeralarm.de"
+            "email": "daniel.mueller@flyeralarm.com"
         },
         {
             "name": "Maximilian Grosch",
-            "email": "m.grosch@flyeralarm.de"
+            "email": "maximilian.grosch@flyeralarm.com"
         }
     ],
     "minimum-stability": "stable",
