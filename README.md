@@ -5,6 +5,18 @@ This repository contains the ruleset for the PHP code we develop at [FLYERALARM]
 It mostly consists of PSR-2 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
 
+## Custom Rules in addition to PSR-2
+
+* Variable names must be in lowerCamelCase
+* Yoda conditions are forbidden
+* Unit tests with @expectedException must contain @expectedExceptionMessage annotation
+* Return type annotations (@return) must only contain one of scalar type or object (e.g. no "@return string|null")
+* Exceptions messages must not contain exclamation marks or full stops
+* Keywords GOTO and EVAL are forbidden
+* Underscores in namespaces are forbidden
+* Classtype suffixes like Interface, Abstract or Trait are forbidden (e.g. LoggerInterface)
+
+
 ## How-To work within *this* project
 To prepare run command:
 ```
