@@ -21,7 +21,7 @@ function processDir($dirPath)
         }
 
         $fileContent = file_get_contents($dirPath . $file);
-        $snifferOutput = shell_exec(__DIR__ . '/../bin/fa-coding-guideline-validator "' . $dirPath . $file . '"');
+        $snifferOutput = shell_exec(__DIR__ . '/../bin/php-code-validator "' . $dirPath . $file . '"');
 
         // expectedPass
         if (preg_match('|//\s@expectedPass$|m', $fileContent)) {
