@@ -6,7 +6,7 @@ cd ${CALLER_DIR}
 
 # used within project
 if [ -f ${BIN_DIR}/phpcs ]; then
-    SCRIPT_DIR=${BIN_DIR}/../flyeralarm/coding-guidelines
+    SCRIPT_DIR=${BIN_DIR}/../flyeralarm/php-code-validator
     COMPOSER_BIN=${BIN_DIR}
 else # standalone
     SCRIPT_DIR=${BIN_DIR}/..
