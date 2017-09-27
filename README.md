@@ -68,7 +68,7 @@ make test
 3) Activate/Tick checkbox for `PHP Code Sniffer validation`
 4) Click on the item `PHP Code Sniffer validation` to open its settings on the right hand side
 5) Choose "Custom" for „Coding standard:“ and click on `...` on the right hand side
-6) Select Path to ruleset. This would be something like <YOUR_APP_ROOT>/vendor/flyeralarm/coding-guidelines/ruleset.xml
+6) Select Path to ruleset. This would be something like <YOUR_APP_ROOT>/vendor/flyeralarm/php-code-validator/ruleset.xml
 7) Confirm dialogs by pressing `ok`
 
 
