@@ -21,7 +21,14 @@ function processDir($dirPath)
         }
 
         $fileContent = file_get_contents($dirPath . $file);
-        $snifferOutput = shell_exec(__DIR__ . '/../bin/php-code-validator "' . $dirPath . $file . '"');
+        $snifferOutput = shell_exec(
+            sprintf(
+                "%s -w -p -s --standard=%s %s",
+                escapeshellcmd(__DIR__ . '/../vendor/bin/phpcs'),
+                escapeshellarg(__DIR__ . '/../ruleset.xml'),
+                escapeshellarg($dirPath . $file)
+            )
+        );
 
         // expectedPass
         if (preg_match('|//\s@expectedPass$|m', $fileContent)) {
