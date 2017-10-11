@@ -15,6 +15,7 @@ class ReturnTypeSniff implements Sniff
         'int',
         'string',
         'float',
+        'resource',
         'array',
         'bool[]',
         'int[]',
