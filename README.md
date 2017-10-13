@@ -34,7 +34,6 @@ make test
 
 Add as composer dev dependency:
 ```
-composer config repositories.flyeralarm/php-code-validator git https://github.com/flyeralarm/php-code-validator.git
 composer require --dev flyeralarm/php-code-validator
 ```
 
