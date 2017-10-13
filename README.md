@@ -1,4 +1,4 @@
-# Flyeralarm PHP Coding Guideline Validator
+# FLYERALARM PHP Coding Guideline Validator
 
 
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
@@ -10,7 +10,8 @@ It mostly consists of PSR-2 with some custom additions. The rules are enforced w
 * Variable names must be in lowerCamelCase
 * Yoda conditions are forbidden
 * Unit tests with @expectedException must contain @expectedExceptionMessage annotation
-* Return type annotations (@return) must only contain one of scalar type or object (e.g. no "@return string|null")
+* Return type annotations (@return) must only contain one of scalar type, object (e.g. no "@return string|null") or 
+an array of one these
 * Exceptions messages must not contain exclamation marks or full stops
 * Keywords GOTO and EVAL are forbidden
 * Underscores in namespaces are forbidden
@@ -19,12 +20,12 @@ It mostly consists of PSR-2 with some custom additions. The rules are enforced w
 
 ## How-To work within *this* project
 To prepare run command:
-```
+```bash
 make
 ```
 
 To test ruleset run command:
-```
+```bash
 make test
 ```
 
@@ -37,25 +38,48 @@ composer config repositories.flyeralarm/php-code-validator git https://github.co
 composer require --dev flyeralarm/php-code-validator
 ```
 
-Embed code sniffer in your Makefile. To intend please use tabs instead of spaces. \
-_Usage:_ vendor/bin/php-code-validator <folder-to-test-one> <folder-to-test-two> <...>
+Embed code sniffer in your Makefile. To intend please use tabs instead of spaces.
 
 Example Makefile:
-```
+```make
 test:
-	vendor/bin/php-code-validator src/ tests/
+	vendor/bin/phpcs -w -p -s --standard=vendor/flyeralarm/php-code-validator/ruleset.xml src/ tests/
 ```
 
+### Add project specific rules
+The recommended way to define custom rules for the own project is to provide a ```phpcs.xml``` in the root of your
+project.
+PHP_CodeSniffer will automatically detect this standard if no other standard was defined (See [PHP_CodeSniffer Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file)).
+
+This ```phpcs.xml``` can then reference the FLYERALARM PHP coding standard.
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset name="Project Rules">
+    <file>./src/</file>
+    <file>./tests/</file>
+    <arg value="sp"/>
+
+    <rule ref="vendor/flyeralarm/php-code-validator/ruleset.xml"/>
+    
+    <!-- custom rules -->
+    
+</ruleset>
+```
+
+Once the file ```phpcs.xml``` is created the code can be validated using:
+```bash
+vendor/bin/phpcs
+```
 
 ### Update to latest stable
 
-```
+```bash
 composer update flyeralarm/php-code-validator
 ```
 
 
 ### Run sniffer
-```
+```bash
 make test
 ```
 
