@@ -18,7 +18,8 @@ class ExceptionMessageSniff implements Sniff
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return void
+     * @return int|void
+     * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
      */
     public function process(File $phpcsFile, $stackPtr)
     {
