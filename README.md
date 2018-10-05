@@ -4,18 +4,21 @@
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
 It mostly consists of PSR-2 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
+The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
+“SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
+interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
 ## Custom Rules in addition to PSR-2
 
-* Variable names must be in lowerCamelCase
-* Yoda conditions are forbidden
-* Unit tests with @expectedException must contain @expectedExceptionMessage annotation
-* Return type annotations (@return) must only contain one of scalar type, object (e.g. no "@return string|null") or 
+* Variable names MUST be in lowerCamelCase
+* Yoda conditions MUST NOT be used
+* Unit tests with @expectedException MUST contain @expectedExceptionMessage annotation
+* Return type annotations (@return) MUST only contain one of scalar type, object (e.g. no "@return string|null") or 
 an array of one these
-* Exceptions messages must not contain exclamation marks or full stops
-* Keywords GOTO and EVAL are forbidden
-* Underscores in namespaces are forbidden
-* Classtype suffixes like Interface, Abstract or Trait are forbidden (e.g. LoggerInterface)
+* Exceptions messages MUST not contain exclamation marks or full stops
+* Keywords GOTO and EVAL MUST NOT be used
+* Underscores in namespaces MUST NOT be used
+* Classtype suffixes like Interface, Abstract or Trait MUST NOT be used (e.g. LoggerInterface)
 
 
 ## How-To work within *this* project
