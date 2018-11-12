@@ -25,7 +25,8 @@ class ExpectedExceptionMessageSniff implements Sniff
         if (!$this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedException')) {
             return;
         }
-        if ($this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessage')) {
+        if ($this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessage')
+            || $this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessageRegExp')) {
             return;
         }
 
