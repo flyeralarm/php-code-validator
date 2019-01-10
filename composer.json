@@ -15,7 +15,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "squizlabs/php_codesniffer": "^3.0"
+        "squizlabs/php_codesniffer": "^3.4"
     },
     "bin": [
         "bin/php-code-validator"
