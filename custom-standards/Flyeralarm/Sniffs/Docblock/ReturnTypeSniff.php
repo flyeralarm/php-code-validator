@@ -20,8 +20,20 @@ class ReturnTypeSniff implements Sniff
         'bool[]',
         'int[]',
         'string[]',
-        'float[]', 
+        'float[]',
         'null'
+    ];
+
+    /**
+     * @var array
+     */
+    private $returnTypeClassWhitelist = [
+        'mysqli',
+        'mysqli_driver',
+        'mysqli_result',
+        'mysqli_stmt',
+        'mysqli_sql_exception',
+        'mysqli_warning',
     ];
 
     /**
@@ -50,7 +62,10 @@ class ReturnTypeSniff implements Sniff
 
         foreach ($returnTypes as $returnType) {
             $returnType = trim($returnType);
-            if (in_array($returnType, $this->returnTypeScalarWhitelist)) {
+            if (in_array($returnType, $this->returnTypeScalarWhitelist, true)) {
+                continue;
+            }
+            if (in_array($returnType, $this->returnTypeClassWhitelist, true)) {
                 continue;
             }
             if ($this->isStartingWithUppercaseLetter($returnType)) {
