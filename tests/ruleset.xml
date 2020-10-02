@@ -14,4 +14,5 @@
     <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ExpectedExceptionMessageSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/Variable/LowerCamelCaseSniff.php"/>
     <rule ref="./custom-standards/Flyeralarm/Sniffs/ControlStructures/YodaSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Classes/FullyQualifiedSniff.php"/>
 </ruleset>
