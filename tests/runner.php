@@ -25,7 +25,7 @@ function processDir($dirPath)
             sprintf(
                 "%s -w -p -s --standard=%s %s",
                 escapeshellcmd(__DIR__ . '/../vendor/bin/phpcs'),
-                escapeshellarg(__DIR__ . '/../ruleset.xml'),
+                escapeshellarg(__DIR__ . '/ruleset.xml'),
                 escapeshellarg($dirPath . $file)
             )
         );

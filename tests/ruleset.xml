@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="FLYERALARM Coding Guidelines">
+    <description>A custom coding standard for FLYERALARM</description>
+    <rule ref="PSR2"/>
+    <rule ref="Generic.Formatting.SpaceAfterCast"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/File/ExceptionMessageSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/File/ForbiddenKeywordsSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NamespacesSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/File/NoClassKindSuffixSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ReturnTypeSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Docblock/ExpectedExceptionMessageSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Variable/LowerCamelCaseSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/ControlStructures/YodaSniff.php"/>
+    <rule ref="./custom-standards/Flyeralarm/Sniffs/Classes/FullyQualifiedSniff.php"/>
+</ruleset>
