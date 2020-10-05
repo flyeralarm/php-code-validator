@@ -1,0 +1,34 @@
+name: "CI"
+
+on:
+  push:
+    branches:
+      - master
+      - workflow
+    paths:
+      - "**.php"
+      - "ruleset.xml"
+      - ".github/workflows/phpcs.yml"
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Log php version
+        run: php --version
+
+      - name: Composer install
+        run: php composer.phar install
+
+      - name: Run php code sniffer
+        run: vendor/bin/phpcs -v --standard=ruleset.xml custom-standards
+
+      - name: Run php code sniffer on tests
+        run: vendor/bin/phpcs -v --standard=PSR12 tests
