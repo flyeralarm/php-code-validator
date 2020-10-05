@@ -12,19 +12,18 @@ class NamespacesSniff implements Sniff
      */
     public function register()
     {
-        return array(T_CLASS, T_ABSTRACT, T_TRAIT, T_INTERFACE);
+        return [T_CLASS, T_ABSTRACT, T_TRAIT, T_INTERFACE];
     }
 
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return void
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $ptr = -1;
-        while($ptr = $phpcsFile->findNext(T_NS_SEPARATOR, $ptr + 1)) {
+        while ($ptr = $phpcsFile->findNext(T_NS_SEPARATOR, $ptr + 1)) {
             if (strpos($tokens[$ptr + 1]['content'], '_') !== false) {
                 $phpcsFile->addError(
                     'Using underscore within namespaces is discouraged',

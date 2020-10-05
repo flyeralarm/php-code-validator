@@ -12,13 +12,12 @@ class YodaSniff implements Sniff
      */
     public function register()
     {
-        return array(T_IF, T_ELSEIF, T_WHILE);
+        return [T_IF, T_ELSEIF, T_WHILE];
     }
 
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return void
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -87,21 +86,25 @@ class YodaSniff implements Sniff
 
         // e.g. if ($foo = true)
         // e.g. if ($foo = 'bar')
-        if (in_array($leftOperandTokenId, $functionAndVariableTokenIds)
+        if (
+            in_array($leftOperandTokenId, $functionAndVariableTokenIds)
             && in_array($rightOperandTokenId, $languageTypeTokenIds)
         ) {
             return;
         }
         // e.g. if (count(..) > $test)
         // e.g. if ($foo == $bar)
-        if (in_array($leftOperandTokenId, $functionAndVariableTokenIds)
+        if (
+            in_array($leftOperandTokenId, $functionAndVariableTokenIds)
             && in_array($rightOperandTokenId, $functionAndVariableTokenIds)
         ) {
             return;
         }
         // e.g. if ('foo' == 'bar')
-        if (in_array($leftOperandTokenId, $languageTypeTokenIds)
-            && in_array($rightOperandTokenId, $languageTypeTokenIds)) {
+        if (
+            in_array($leftOperandTokenId, $languageTypeTokenIds)
+            && in_array($rightOperandTokenId, $languageTypeTokenIds)
+        ) {
             return;
         }
 

@@ -12,13 +12,12 @@ class NoClassKindSuffixSniff implements Sniff
      */
     public function register()
     {
-        return array(T_INTERFACE, T_CLASS, T_TRAIT);
+        return [T_INTERFACE, T_CLASS, T_TRAIT];
     }
 
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return int|void
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
      */
     public function process(File $phpcsFile, $stackPtr)

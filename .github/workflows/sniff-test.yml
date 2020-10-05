@@ -1,0 +1,31 @@
+name: "SNIFF-TEST"
+
+on:
+  push:
+    branches:
+      - master
+      - workflow
+    paths:
+      - "**.php"
+      - "ruleset.xml"
+      - ".github/workflows/sniff-test.yml"
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  sniff-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Log php version
+        run: php --version
+
+      - name: Composer install
+        run: php composer.phar install
+
+      - name: Run php code sniffer tests
+        run: php tests/runner.php
