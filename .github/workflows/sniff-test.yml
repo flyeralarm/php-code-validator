@@ -1,4 +1,4 @@
-name: "PHPCS"
+name: "SNIFF-TEST"
 
 on:
   push:
@@ -8,13 +8,13 @@ on:
     paths:
       - "**.php"
       - "ruleset.xml"
-      - ".github/workflows/phpcs.yml"
+      - ".github/workflows/sniff-test.yml"
   pull_request:
     branches:
       - master
 
 jobs:
-  phpcs:
+  sniff-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,8 +27,5 @@ jobs:
       - name: Composer install
         run: php composer.phar install
 
-      - name: Run php code sniffer
-        run: vendor/bin/phpcs -v --standard=ruleset.xml custom-standards
-
-      - name: Run php code sniffer on tests
-        run: vendor/bin/phpcs -v --standard=PSR12 tests
+      - name: Run php code sniffer tests
+        run: php tests/runner.php
