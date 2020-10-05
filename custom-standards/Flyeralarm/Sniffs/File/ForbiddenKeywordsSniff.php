@@ -12,13 +12,12 @@ class ForbiddenKeywordsSniff implements Sniff
      */
     public function register()
     {
-        return array(T_CLASS, T_ABSTRACT, T_TRAIT);
+        return [T_CLASS, T_ABSTRACT, T_TRAIT];
     }
 
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return void
      */
     public function process(File $phpcsFile, $stackPtr)
     {

@@ -13,13 +13,12 @@ class FullyQualifiedSniff implements Sniff
      */
     public function register()
     {
-        return array(T_DOUBLE_COLON, T_NEW);
+        return [T_DOUBLE_COLON, T_NEW];
     }
 
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return void
      */
     public function process(File $phpcsFile, $stackPtr)
     {
