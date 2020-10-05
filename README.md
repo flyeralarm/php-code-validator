@@ -2,13 +2,13 @@
 
 
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
-It mostly consists of PSR-2 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
+It mostly consists of PSR-12 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
 interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
-## Custom Rules in addition to PSR-2
+## Custom Rules in addition to PSR-12
 
 * Variable names MUST be in lowerCamelCase
 * Yoda conditions MUST NOT be used

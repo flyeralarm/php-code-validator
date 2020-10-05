@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="FLYERALARM Coding Guidelines">
     <description>A custom coding standard for FLYERALARM</description>
-    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
     <rule ref="Generic.Formatting.SpaceAfterCast"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found"/>
     <rule ref="Generic.PHP.DisallowShortOpenTag"/>
