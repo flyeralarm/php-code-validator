@@ -1,6 +1,6 @@
 <?php
 
-// @expectedError Qualifier should be replaced with an import: "new \RuntimeException()"
+// @expectedError Qualifier should be replaced with an import: "new \RuntimeException"
 
 namespace flyeralarm\Test;
 

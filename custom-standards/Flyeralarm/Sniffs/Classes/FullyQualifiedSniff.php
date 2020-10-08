@@ -43,9 +43,15 @@ class FullyQualifiedSniff implements Sniff
 
         switch ($tokens[$stackPtr]['code']) {
             case T_NEW:
-                return $phpcsFile->getTokensAsString(
+                $tokensAsString = $phpcsFile->getTokensAsString(
                     $stackPtr,
                     $phpcsFile->findEndOfStatement($stackPtr) - $stackPtr
+                );
+
+                return substr(
+                    $tokensAsString,
+                    0,
+                    strpos($tokensAsString, '(')
                 );
 
             case T_DOUBLE_COLON:

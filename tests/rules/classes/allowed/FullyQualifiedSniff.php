@@ -13,4 +13,11 @@ class FullyQualifiedSniff
         $className = RuntimeException::class;
         $a = new RuntimeException();
     }
+
+    public function b()
+    {
+        $a = new RuntimeException(
+            'We can\'t explain'
+        );
+    }
 }
