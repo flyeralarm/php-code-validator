@@ -5,8 +5,9 @@
 namespace flyeralarm\Test;
 
 use RuntimeException;
+use stdClass;
 
-class FullyQualifiedSniff
+class FullyQualifiedSniff extends stdClass
 {
     public function a()
     {
