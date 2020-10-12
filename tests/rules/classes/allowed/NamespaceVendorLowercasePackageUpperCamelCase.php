@@ -4,6 +4,8 @@
 
 namespace flyeralarm\FooBar;
 
-class NamespaceVendorLowercasePackageUpperCamelCase extends \PHP_CodeSniffer_File
+use PHP_CodeSniffer_File;
+
+class NamespaceVendorLowercasePackageUpperCamelCase extends PHP_CodeSniffer_File
 {
 }
