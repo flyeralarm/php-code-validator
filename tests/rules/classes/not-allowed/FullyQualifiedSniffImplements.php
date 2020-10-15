@@ -4,7 +4,7 @@
 
 namespace flyeralarm\Test;
 
-class FullyQualifiedSniffExtends implements \IteratorAggregate
+class FullyQualifiedSniffImplements implements \IteratorAggregate
 {
     public function getIterator()
     {
