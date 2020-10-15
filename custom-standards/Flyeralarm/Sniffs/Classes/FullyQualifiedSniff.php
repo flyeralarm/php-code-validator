@@ -13,7 +13,7 @@ class FullyQualifiedSniff implements Sniff
      */
     public function register()
     {
-        return array(T_DOUBLE_COLON, T_NEW, T_EXTENDS);
+        return array(T_DOUBLE_COLON, T_NEW, T_EXTENDS, T_IMPLEMENTS);
     }
 
     /**
@@ -63,6 +63,7 @@ class FullyQualifiedSniff implements Sniff
                 );
 
             case T_EXTENDS:
+            case T_IMPLEMENTS:
                 $tokensAsString = $phpcsFile->getTokensAsString(
                     $stackPtr,
                     $phpcsFile->findEndOfStatement($stackPtr) - $stackPtr
