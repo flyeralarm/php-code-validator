@@ -21,6 +21,13 @@ class FooTest
     }
 
     /**
+     * @return array<int, string>
+     */
+    public function testWithNumericIndex()
+    {
+    }
+
+    /**
      * @return array<string | int>
      */
     public function testWithAlternativeInside()

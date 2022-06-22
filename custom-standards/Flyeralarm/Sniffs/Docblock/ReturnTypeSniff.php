@@ -160,6 +160,11 @@ class ReturnTypeSniff implements Sniff
                 }
 
                 $match = trim($match);
+                if (strpos($match, 'int,') === 0) {
+                    // Allow numeric indexing in generics, e.g. `array<int, string>`
+                    $match = substr($match, 4);
+                }
+
                 if ($match === '') {
                     throw new \InvalidArgumentException('Generic specification may not be empty in type "' . $matches[0][$index] . '"');
                 }
