@@ -143,9 +143,9 @@ class ReturnTypeSniff implements Sniff
      */
     private function checkReturnTypeShape(string $subject)
     {
-        preg_match_all('#(?<separator>\s*\|\s*)?(?<atom>[^<>\|]+)(?<generic><(?<nested>.*)>)?#', $subject, $matches);
+        $matched = preg_match_all('#(?<separator>\s*\|\s*)?(?<atom>[^<>\|]+)(?<generic><(?<nested>.*)>)?#', $subject, $matches);
 
-        if (implode('', $matches[0]) !== $subject) {
+        if (!$matched || implode('', $matches[0]) !== $subject) {
             throw new \InvalidArgumentException('Invalid structure in return type "' . $subject . '"');
         }
 
