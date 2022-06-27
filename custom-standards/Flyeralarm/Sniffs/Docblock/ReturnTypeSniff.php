@@ -154,7 +154,7 @@ class ReturnTypeSniff implements Sniff
         }
 
         foreach ($matches['nested'] as $index => $match) {
-            if (!empty($matches['generic'][$index])) {
+            if ($matches['generic'][$index] === '') {
                 if (trim($matches['atom'][$index]) !== 'array') {
                     throw new \InvalidArgumentException('Unexpected generic specification in type "' . $matches[0][$index] . '"');
                 }
