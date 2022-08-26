@@ -58,13 +58,22 @@ class ReturnTypeSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
         $returnTypePtr = $this->getDocReturnTypePtr($phpcsFile, $stackPtr);
         $returnTypeString = $tokens[$returnTypePtr]['content'];
+        $returnTypes = explode('|', $returnTypeString);
 
-        try {
-            $this->checkReturnTypeShape($returnTypeString);
-        }
-        catch (\InvalidArgumentException $exception) {
+        foreach ($returnTypes as $returnType) {
+            $returnType = trim($returnType);
+            if (in_array($returnType, $this->returnTypeScalarWhitelist, true)) {
+                continue;
+            }
+            if (in_array($returnType, $this->returnTypeClassWhitelist, true)) {
+                continue;
+            }
+            if ($this->isStartingWithUppercaseLetter($returnType)) {
+                continue;
+            }
+
             $phpcsFile->addError(
-                $exception->getMessage(),
+                sprintf('Return type "%s" is discouraged', $returnType),
                 $returnTypePtr,
                 'ProhibitedReturnType'
             );
@@ -135,56 +144,5 @@ class ReturnTypeSniff implements Sniff
         }
 
         return false;
-    }
-
-    /**
-     * @param string $subject The return type string to check.
-     * @return void
-     */
-    private function checkReturnTypeShape(string $subject)
-    {
-        $matched = preg_match_all('#(?<separator>\s*\|\s*)?(?<atom>[^<>\|]+)(?<generic><(?<nested>.*)>)?#', $subject, $matches);
-
-        if (!$matched || implode('', $matches[0]) !== $subject) {
-            throw new \InvalidArgumentException('Invalid structure in return type "' . $subject . '"');
-        }
-
-        if (strpos($matches['separator'][0], '|') !== false) {
-            throw new \InvalidArgumentException('Missing return type in first alternative of type "' . $subject . '"');
-        }
-
-        foreach ($matches['nested'] as $index => $match) {
-            if ($matches['generic'][$index] === '') {
-                if (trim($matches['atom'][$index]) !== 'array') {
-                    throw new \InvalidArgumentException('Unexpected generic specification in type "' . $matches[0][$index] . '"');
-                }
-
-                $match = trim($match);
-                if (strpos($match, 'int,') === 0) {
-                    // Allow numeric indexing in generics, e.g. `array<int, string>`
-                    $match = substr($match, 4);
-                }
-
-                if ($match === '') {
-                    throw new \InvalidArgumentException('Generic specification may not be empty in type "' . $matches[0][$index] . '"');
-                }
-
-                $this->checkReturnTypeShape($match);
-            }
-
-            // Check if atom is in whitelist.
-            $returnType = trim($matches['atom'][$index]);
-            if (in_array($returnType, $this->returnTypeScalarWhitelist, true)) {
-                continue;
-            }
-            if (in_array($returnType, $this->returnTypeClassWhitelist, true)) {
-                continue;
-            }
-            if ($this->isStartingWithUppercaseLetter($returnType)) {
-                continue;
-            }
-
-            throw new \InvalidArgumentException('Return type "' . $returnType . '" is discouraged');
-        }
     }
 }
