@@ -1,8 +1,10 @@
 #!/bin/bash
-CALLER_DIR=$(pwd)
-cd $(dirname $0)
-BIN_DIR=$(pwd)
-cd ${CALLER_DIR}
+
+if [[ -z "$COMPOSER_RUNTIME_BIN_DIR" ]]; then
+  BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+else
+  BIN_DIR="$COMPOSER_RUNTIME_BIN_DIR"
+fi
 
 # used within project
 if [ -f ${BIN_DIR}/phpcs ]; then
