@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Validate composer.json and composer.lock
-      run: php --version && composer --version && composer validate --strict
+      run: php --version \
+              && composer --version && composer validate --strict \
+              && php composer.phar --version && php composer.phar validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -30,7 +32,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: php composer.phar install --no-progress
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
