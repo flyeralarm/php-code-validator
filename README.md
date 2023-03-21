@@ -1,6 +1,5 @@
 # FLYERALARM PHP Coding Guideline Validator
 
-
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
 It mostly consists of PSR-12 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
@@ -8,13 +7,12 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
 interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
+
 ## Custom Rules in addition to PSR-12
 
 * Variable names MUST be in lowerCamelCase
 * Yoda conditions MUST NOT be used
 * Unit tests with @expectedException MUST contain @expectedExceptionMessage annotation
-* Return type annotations (@return) MUST only contain one of scalar type, object (e.g. no "@return string|null") or 
-an array of one these
 * Exceptions messages MUST not contain exclamation marks or full stops
 * Keywords GOTO and EVAL MUST NOT be used
 * Underscores in namespaces MUST NOT be used
@@ -22,6 +20,7 @@ an array of one these
 
 
 ## How-To work within *this* project
+
 To prepare run command:
 ```bash
 make
@@ -48,7 +47,9 @@ test:
 	vendor/bin/phpcs -w -p -s --standard=vendor/flyeralarm/php-code-validator/ruleset.xml src/ tests/
 ```
 
+
 ### Add project specific rules
+
 The recommended way to define custom rules for the own project is to provide a ```phpcs.xml``` in the root of your
 project.
 PHP_CodeSniffer will automatically detect this standard if no other standard was defined (See [PHP_CodeSniffer Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file)).
@@ -73,6 +74,7 @@ Once the file ```phpcs.xml``` is created the code can be validated using:
 vendor/bin/phpcs
 ```
 
+
 ### Update to latest stable
 
 ```bash
@@ -81,12 +83,14 @@ composer update flyeralarm/php-code-validator
 
 
 ### Run sniffer
+
 ```bash
 make test
 ```
 
 
 ## Use within PHPStorm
+
 1) Ensure the path to PHP Code Sniffer is configured - [open configuration manual](https://confluence.jetbrains.com/display/PhpStorm/PHP+Code+Sniffer+in+PhpStorm#PHPCodeSnifferinPhpStorm-1.1.SpecifyingthepathtoPHPCodeSniffer) 
 2) Open settings: \
    Mac: `PhpStorm` > `Preferences` > `Editor` > `Inspections` > `PHP` \
@@ -98,4 +102,4 @@ make test
 7) Confirm dialogs by pressing `ok`
 
 
-On a side note: [We are searching for talented people to join our various teams of developers in multiple locations](https://karriere.flyeralarm.com/jobs)
+On a side note: [We are searching for talented people to join our various teams of developers in multiple locations](https://www.flyeralarm.com/it-jobs/)
