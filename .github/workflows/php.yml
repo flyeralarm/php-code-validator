@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+      run: php --version && composer --version && composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
