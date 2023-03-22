@@ -12,15 +12,16 @@ permissions:
 jobs:
   build:
 
-    runs-on: php-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
 
+    - name: Versions
+      run: php --version && composer --version
+
     - name: Validate composer.json and composer.lock
-      run: php --version \
-              && composer --version && composer validate --strict \
-              && php composer.phar --version && php composer.phar validate --strict
+      run: composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -32,10 +33,10 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: php composer.phar install --no-progress
+      run: composer install
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+    - name: phpcs version
+      run: vendor/bin/phpcs --version
 
     - name: Run test suite
       run: php tests/runner.php
