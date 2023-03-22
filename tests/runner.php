@@ -23,7 +23,7 @@ function processDir($dirPath)
         $fileContent = file_get_contents($dirPath . $file);
         $snifferOutput = shell_exec(
             sprintf(
-                "%s -w -p -s --standard=%s %s",
+                "%s -w -p -s  --config-set report_width 250 --standard=%s %s",
                 escapeshellcmd(__DIR__ . '/../vendor/bin/phpcs'),
                 escapeshellarg(__DIR__ . '/ruleset.xml'),
                 escapeshellarg($dirPath . $file)
