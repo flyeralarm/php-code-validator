@@ -12,7 +12,7 @@ class ExceptionMessageSniff implements Sniff
      */
     public function register()
     {
-        return array(T_CLASS);
+        return [T_CLASS];
     }
 
     /**
@@ -31,7 +31,7 @@ class ExceptionMessageSniff implements Sniff
 
         $tokens = $phpcsFile->getTokens();
         $ptr = -1;
-        while($ptr = $phpcsFile->findNext(T_CONSTANT_ENCAPSED_STRING, $ptr + 1)) {
+        while ($ptr = $phpcsFile->findNext(T_CONSTANT_ENCAPSED_STRING, $ptr + 1)) {
             if (strpos($tokens[$ptr]['content'], '!') !== false) {
                 $phpcsFile->addError(
                     'Exclamationmarks are not allowed in Exceptionmessages',

@@ -6,7 +6,6 @@ namespace flyeralarm\Test;
 
 class FooTest
 {
-
     /**
      * @return resource
      */
