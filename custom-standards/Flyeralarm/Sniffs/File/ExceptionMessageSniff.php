@@ -2,6 +2,7 @@
 
 namespace Flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\File;
 
+use PHP_CodeSniffer\Exceptions\RuntimeException;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
@@ -18,14 +19,14 @@ class ExceptionMessageSniff implements Sniff
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
-     * @return int|void
-     * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
+     * @return void
+     * @throws RuntimeException
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $className = $phpcsFile->getDeclarationName($stackPtr);
 
-        if (strpos($className, 'Exception') === false) {
+        if (! $this->doesStringEndsWith($className, 'Exception')) {
             return;
         }
 
@@ -48,5 +49,14 @@ class ExceptionMessageSniff implements Sniff
                 );
             }
         }
+    }
+
+    /**
+     * @alias str_ends_with in PHP8+
+     */
+    public function doesStringEndsWith(string $className, string $suffix): bool
+    {
+        $suffixLength = strlen($suffix);
+        return ($suffixLength === 0 || 0 === substr_compare($className, $suffix, - $suffixLength));
     }
 }
