@@ -23,7 +23,13 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
 To prepare run command:
 ```bash
-make
+make install
+```
+
+To check code style compliance or to fix what can be autofixed run commands:
+```bash
+make sniff
+make sniff-fix
 ```
 
 To test ruleset run command:
