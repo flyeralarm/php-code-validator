@@ -12,7 +12,7 @@ class ExpectedExceptionMessageSniff implements Sniff
      */
     public function register()
     {
-        return array(T_DOC_COMMENT_OPEN_TAG);
+        return [T_DOC_COMMENT_OPEN_TAG];
     }
 
     /**
@@ -25,8 +25,10 @@ class ExpectedExceptionMessageSniff implements Sniff
         if (!$this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedException')) {
             return;
         }
-        if ($this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessage')
-            || $this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessageRegExp')) {
+        if (
+            $this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessage')
+            || $this->hasAnnotationInDoc($phpcsFile, $stackPtr, '@expectedExceptionMessageRegExp')
+        ) {
             return;
         }
 

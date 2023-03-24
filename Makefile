@@ -4,17 +4,16 @@ COMPOSER_BIN=$(PHP_BIN) composer.phar
 # ---------------------------------------------
 
 # make
-.DEFAULT_GOAL := install-dev
+.DEFAULT_GOAL := install
 
-# make test
+install:
+	$(COMPOSER_BIN) install
+
+sniff:
+	$(PHP_BIN) vendor/bin/phpcs -w -p -s --standard=ruleset.xml --ignore="tests/*not-allowed*" custom-standards/ tests/
+
+sniff-fix:
+	$(PHP_BIN) vendor/bin/phpcbf -w -p -s --standard=ruleset.xml --ignore="tests/*not-allowed*" custom-standards/ tests/
+
 test:
 	$(PHP_BIN) tests/runner.php
-
-# make install
-install:
-
-# ---------------------------------------------
-# functions
-
-install-dev:
-	$(COMPOSER_BIN) install

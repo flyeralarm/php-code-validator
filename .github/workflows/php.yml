@@ -38,5 +38,8 @@ jobs:
     - name: phpcs version
       run: vendor/bin/phpcs --version
 
+    - name: Validate code style
+      run: vendor/bin/phpcs -w -p -s --standard=ruleset.xml --ignore="tests/*not-allowed*" custom-standards/ tests/
+
     - name: Run test suite
       run: php tests/runner.php

@@ -12,7 +12,7 @@ class NoClassKindSuffixSniff implements Sniff
      */
     public function register()
     {
-        return array(T_INTERFACE, T_CLASS, T_TRAIT);
+        return [T_INTERFACE, T_CLASS, T_TRAIT];
     }
 
     /**

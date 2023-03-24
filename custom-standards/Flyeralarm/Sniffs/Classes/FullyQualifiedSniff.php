@@ -13,7 +13,7 @@ class FullyQualifiedSniff implements Sniff
      */
     public function register()
     {
-        return array(T_DOUBLE_COLON, T_NEW, T_EXTENDS, T_IMPLEMENTS);
+        return [T_DOUBLE_COLON, T_NEW, T_EXTENDS, T_IMPLEMENTS];
     }
 
     /**
