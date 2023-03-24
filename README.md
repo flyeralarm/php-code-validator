@@ -37,6 +37,16 @@ To test ruleset run command:
 make test
 ```
 
+As test runner is dockerized we can test with different PHP versions:
+```shell
+PHP_VERSION=8.2 make test
+```
+
+or all at once:
+```shell
+make test-all
+```
+
 
 ## Embed into *your* project
 
@@ -51,6 +61,12 @@ Example Makefile:
 ```make
 test:
 	vendor/bin/phpcs -w -p -s --standard=vendor/flyeralarm/php-code-validator/ruleset.xml src/ tests/
+```
+
+or in shorter version by using code validator binary which already use flyeralarm as default standard:
+```make
+test:
+   vendor/bin/php-code-validator src/ tests/
 ```
 
 
