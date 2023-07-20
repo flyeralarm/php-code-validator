@@ -1,6 +1,6 @@
 # FLYERALARM PHP Coding Guideline Validator
 
-This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com). 
+This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com).
 It mostly consists of PSR-12 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
@@ -63,13 +63,6 @@ test:
 	vendor/bin/phpcs -w -p -s --standard=vendor/flyeralarm/php-code-validator/ruleset.xml src/ tests/
 ```
 
-or in shorter version by using code validator binary which already use flyeralarm as default standard:
-```make
-test:
-   vendor/bin/php-code-validator src/ tests/
-```
-
-
 ### Add project specific rules
 
 The recommended way to define custom rules for the own project is to provide a ```phpcs.xml``` in the root of your
@@ -85,9 +78,9 @@ This ```phpcs.xml``` can then reference the FLYERALARM PHP coding standard.
     <arg value="sp"/>
 
     <rule ref="vendor/flyeralarm/php-code-validator/ruleset.xml"/>
-    
+
     <!-- custom rules -->
-    
+
 </ruleset>
 ```
 
@@ -113,7 +106,7 @@ make test
 
 ## Use within PHPStorm
 
-1) Ensure the path to PHP Code Sniffer is configured - [open configuration manual](https://confluence.jetbrains.com/display/PhpStorm/PHP+Code+Sniffer+in+PhpStorm#PHPCodeSnifferinPhpStorm-1.1.SpecifyingthepathtoPHPCodeSniffer) 
+1) Ensure the path to PHP Code Sniffer is configured - [open configuration manual](https://confluence.jetbrains.com/display/PhpStorm/PHP+Code+Sniffer+in+PhpStorm#PHPCodeSnifferinPhpStorm-1.1.SpecifyingthepathtoPHPCodeSniffer)
 2) Open settings: \
    Mac: `PhpStorm` > `Preferences` > `Editor` > `Inspections` > `PHP` \
    Windows & Linux: `File` > `Settings` > `Editor` > `Inspections` > `PHP` \
