@@ -28,6 +28,8 @@ class YodaSniff implements Sniff
         $startOfConditionPtr = $stackPtr;
         if (array_key_exists('scope_opener', $tokens[$startOfConditionPtr])) {
             $endPtr = $tokens[$startOfConditionPtr]['scope_opener'] + 1;
+        } else {
+            $endPtr = null;
         }
 
         $logicalOperatorTokenIds = [T_BOOLEAN_AND, T_BOOLEAN_OR, T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR];
