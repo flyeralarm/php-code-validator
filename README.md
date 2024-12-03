@@ -23,6 +23,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
 To prepare run command:
 ```bash
+make build
 make install
 ```
 

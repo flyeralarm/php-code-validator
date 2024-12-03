@@ -2,8 +2,8 @@
 
 namespace Flyeralarm\CodingGuidelines\Flyeralarm\Sniffs\ControlStructures;
 
-use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 class YodaSniff implements Sniff
 {
@@ -15,6 +15,7 @@ class YodaSniff implements Sniff
         return [T_IF, T_ELSEIF, T_WHILE];
     }
 
+
     /**
      * @param File $phpcsFile
      * @param int $stackPtr
@@ -25,7 +26,7 @@ class YodaSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
 
         $startOfConditionPtr = $stackPtr;
-        $endPtr = $tokens[$startOfConditionPtr]['scope_opener'] + 1;
+        $endPtr = $this->getConditionStartPointerDoWhileStable($tokens[$startOfConditionPtr]);
 
         $logicalOperatorTokenIds = [T_BOOLEAN_AND, T_BOOLEAN_OR, T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR];
         $scopeOpenerTokenIds = [T_OPEN_CURLY_BRACKET];
@@ -36,6 +37,7 @@ class YodaSniff implements Sniff
             $startOfConditionPtr = $endOfConditionPtr + 1;
         }
     }
+
 
     /**
      * @param File $phpcsFile
@@ -114,5 +116,15 @@ class YodaSniff implements Sniff
             $leftOperandPtr,
             'ConditionalOrder'
         );
+    }
+
+
+    private function getConditionStartPointerDoWhileStable(array $array): ?int
+    {
+        if (array_key_exists('scope_opener', $array)) {
+            return $array['scope_opener'] + 1;
+        }
+
+        return null;
     }
 }

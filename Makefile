@@ -1,5 +1,5 @@
 PHP_IMAGE_TAG=flyeralarm/php-code-valiator-cli:$(PHP_VERSION)
-PHP_VERSION?=8.2
+PHP_VERSION?=8.3
 
 PHP_BIN=$(RUNNER) php
 COMPOSER_BIN=$(RUNNER) /usr/bin/composer
@@ -40,6 +40,7 @@ test:
 
 .PHONY: test-all
 test-all:
+	PHP_VERSION=8.3 $(MAKE) build update sniff test
 	PHP_VERSION=8.2 $(MAKE) build update sniff test
 	PHP_VERSION=8.1 $(MAKE) build update sniff test
 	PHP_VERSION=7.4 $(MAKE) build update sniff test
