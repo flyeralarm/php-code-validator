@@ -15,6 +15,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "squizlabs/php_codesniffer": "^3.5"
+        "phpcsstandards/php_codesniffer": "^3.5"
     }
 }
