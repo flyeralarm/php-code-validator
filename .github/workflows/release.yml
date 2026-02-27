@@ -29,7 +29,7 @@ jobs:
                   VERSION_NUMBER="${VERSION#v}"
 
                   RELEASE_NOTES=$(awk -v ver="$VERSION_NUMBER" '
-                    $0 ~ "^## " ver "$" || $0 ~ "^## \\[" ver "\\]" { found=1; next }
+                    $0 ~ "^## \\[?" ver "\\]?([[:space:]]|$)" { found=1; next }
                     found && /^## / { exit }
                     found { print }
                   ' CHANGELOG.md | sed '/^[[:space:]]*$/{ /./!d }')
