@@ -29,7 +29,7 @@ jobs:
                   VERSION_NUMBER="${VERSION#v}"
 
                   RELEASE_NOTES=$(awk -v ver="$VERSION_NUMBER" '
-                    $0 ~ "^## " ver "$" || $0 ~ "^## \\[" ver "\\]" { found=1; next }
+                    $0 ~ "^## \\[?" ver "\\]?([[:space:]]|$)" { found=1; next }
                     found && /^## / { exit }
                     found { print }
                   ' CHANGELOG.md | sed '/^[[:space:]]*$/{ /./!d }')
@@ -38,12 +38,7 @@ jobs:
                     RELEASE_NOTES="Release ${VERSION_NUMBER}"
                   fi
 
-                  # Use multiline output via environment file
-                  {
-                    echo "notes<<EOF"
-                    echo "$RELEASE_NOTES"
-                    echo "EOF"
-                  } >> "$GITHUB_OUTPUT"
+                  echo "$RELEASE_NOTES" > /tmp/release_notes.md
 
             - name: Create GitHub Release
               env:
@@ -52,4 +47,4 @@ jobs:
                   VERSION="${{ github.ref_name }}"
                   gh release create "$VERSION" \
                     --title "$VERSION" \
-                    --notes "${{ steps.changelog.outputs.notes }}"
+                    --notes-file /tmp/release_notes.md
