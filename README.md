@@ -1,7 +1,7 @@
 # FLYERALARM PHP Coding Guideline Validator
 
 This repository contains the ruleset for the PHP code we develop at [FLYERALARM](https://flyeralarm.com).
-It mostly consists of PSR-12 with some custom additions. The rules are enforced with the help of squizlabs/PHP_CodeSniffer
+It mostly consists of PSR-12 with some custom additions. The rules are enforced with the help of PHPCSStandards/PHP_CodeSniffer
 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
 “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
@@ -68,7 +68,7 @@ test:
 
 The recommended way to define custom rules for the own project is to provide a ```phpcs.xml``` in the root of your
 project.
-PHP_CodeSniffer will automatically detect this standard if no other standard was defined (See [PHP_CodeSniffer Advanced Usage](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file)).
+PHP_CodeSniffer will automatically detect this standard if no other standard was defined (See [PHP_CodeSniffer Advanced Usage](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file)).
 
 This ```phpcs.xml``` can then reference the FLYERALARM PHP coding standard.
 ```xml

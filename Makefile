@@ -1,4 +1,4 @@
-PHP_IMAGE_TAG=flyeralarm/php-code-valiator-cli:$(PHP_VERSION)
+PHP_IMAGE_TAG=flyeralarm/php-code-validator:$(PHP_VERSION)
 PHP_VERSION?=8.3
 
 PHP_BIN=$(RUNNER) php
