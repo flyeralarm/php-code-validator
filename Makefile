@@ -40,6 +40,7 @@ test:
 
 .PHONY: test-all
 test-all:
+	PHP_VERSION=8.5 $(MAKE) build update sniff test
 	PHP_VERSION=8.4 $(MAKE) build update sniff test
 	PHP_VERSION=8.3 $(MAKE) build update sniff test
 	PHP_VERSION=8.2 $(MAKE) build update sniff test
