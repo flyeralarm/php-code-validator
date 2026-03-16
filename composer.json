@@ -1,7 +1,7 @@
 {
     "name": "flyeralarm/php-code-validator",
     "description": "A custom coding standard for FLYERALARM",
-    "type": "config",
+    "type": "phpcodesniffer-standard",
     "license": "BSD-3-Clause",
     "authors": [
         {
